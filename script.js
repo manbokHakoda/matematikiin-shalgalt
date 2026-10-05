@@ -1,86 +1,44 @@
-/* =====================================================
-   GOOGLE SHEETS WEB APP URL
-   ===================================================== */
+/* =========================================================
+   GOOGLE APPS SCRIPT WEB APP URL
+========================================================= */
 
 const WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbx7L6QAtaJKDtDaa0O0K0lDa5NUa0NsqSlou_ZwCFQow32Z1vmSEgwrsJhPE9REtFkN/exec";
+    "https://script.google.com/macros/s/AKfycbyriwDILHXlqF2TOU62MFRW_bTxWL8C3QrwWM9wWXWx2V_nsD9SZtsqcdZlJzktfG-r/exec";
 
 
-/* =====================================================
-   ШАЛГАЛТЫН АСУУЛТУУД
-   ===================================================== */
+/* =========================================================
+   QUESTIONS
+========================================================= */
 
 const questions = [
 
     {
         topic: "Алгебр",
-        question:
-            "x² − 5x + 6 = 0 тэгшитгэлийн язгуурууд аль вэ?",
+        question: "x² − 5x + 6 = 0 тэгшитгэлийн шийд аль вэ?",
         options: [
-            "1 ба 6",
-            "2 ба 3",
-            "−2 ба −3",
-            "3 ба 4"
+            "x = 1, 2",
+            "x = 2, 3",
+            "x = 3, 4",
+            "x = 1, 3"
         ],
         answer: 1
     },
 
     {
         topic: "Алгебр",
-        question:
-            "(a + b)²-ийн зөв задлал аль вэ?",
+        question: "(a + b)² -ийн зөв задлал аль вэ?",
         options: [
             "a² + b²",
             "a² − 2ab + b²",
             "a² + 2ab + b²",
-            "a² − b²"
+            "a² + ab + b²"
         ],
         answer: 2
     },
 
     {
         topic: "Алгебр",
-        question:
-            "2x + 7 = 15 бол x хэд вэ?",
-        options: [
-            "3",
-            "4",
-            "5",
-            "6"
-        ],
-        answer: 1
-    },
-
-    {
-        topic: "Алгебр",
-        question:
-            "x / 3 = 5 бол x хэд вэ?",
-        options: [
-            "8",
-            "10",
-            "12",
-            "15"
-        ],
-        answer: 3
-    },
-
-    {
-        topic: "Тэгшитгэл",
-        question:
-            "|x| = 7 тэгшитгэл хэдэн шийдтэй вэ?",
-        options: [
-            "1",
-            "2",
-            "7",
-            "14"
-        ],
-        answer: 1
-    },
-
-    {
-        topic: "Тэгшитгэл",
-        question:
-            "3(x − 2) = 12 бол x хэд вэ?",
+        question: "2x + 7 = 15 бол x хэд вэ?",
         options: [
             "2",
             "4",
@@ -91,9 +49,46 @@ const questions = [
     },
 
     {
+        topic: "Алгебр",
+        question: "x / 3 = 5 бол x хэд вэ?",
+        options: [
+            "8",
+            "10",
+            "12",
+            "15"
+        ],
+        answer: 3
+    },
+
+
+    {
+        topic: "Тэгшитгэл",
+        question: "|x| = 7 тэгшитгэл хэдэн шийдтэй вэ?",
+        options: [
+            "0",
+            "2",
+            "7",
+            "1"
+        ],
+        answer: 1
+    },
+
+    {
+        topic: "Тэгшитгэл",
+        question: "3(x − 2) = 12 бол x хэд вэ?",
+        options: [
+            "2",
+            "4",
+            "6",
+            "8"
+        ],
+        answer: 1
+    },
+
+
+    {
         topic: "Функц",
-        question:
-            "f(x) = 2x + 1 бол f(4) хэд вэ?",
+        question: "f(x) = 2x + 1 бол f(4) хэд вэ?",
         options: [
             "7",
             "8",
@@ -105,8 +100,7 @@ const questions = [
 
     {
         topic: "Функц",
-        question:
-            "y = 3x − 2 шулууны налалт хэд вэ?",
+        question: "y = 3x − 2 функцийн налалт хэд вэ?",
         options: [
             "−2",
             "2",
@@ -118,8 +112,7 @@ const questions = [
 
     {
         topic: "Функц",
-        question:
-            "y = x² функцийн график ямар хэлбэртэй вэ?",
+        question: "y = x² функцийн график ямар хэлбэртэй вэ?",
         options: [
             "Шулуун",
             "Парабол",
@@ -131,21 +124,20 @@ const questions = [
 
     {
         topic: "Функц",
-        question:
-            "f(x) = x − 5 үед f(5) хэд вэ?",
+        question: "f(x) = x − 5 бол f(5) хэд вэ?",
         options: [
-            "−5",
             "0",
+            "1",
             "5",
             "10"
         ],
         answer: 1
     },
 
+
     {
         topic: "Геометр",
-        question:
-            "Гурвалжны дотоод өнцгүүдийн нийлбэр хэд вэ?",
+        question: "Гурвалжны дотоод өнцгүүдийн нийлбэр хэд вэ?",
         options: [
             "90°",
             "180°",
@@ -157,8 +149,7 @@ const questions = [
 
     {
         topic: "Геометр",
-        question:
-            "Тэгш өнцөгтийн урт 8 см, өргөн 5 см бол талбай хэд вэ?",
+        question: "Тэгш өнцөгтийн урт 8 см, өргөн 5 см бол талбай хэд вэ?",
         options: [
             "13 см²",
             "26 см²",
@@ -170,21 +161,19 @@ const questions = [
 
     {
         topic: "Геометр",
-        question:
-            "Тойргийн радиус 4 см бол диаметр хэд вэ?",
+        question: "Тойргийн радиус 4 см бол диаметр хэд вэ?",
         options: [
             "2 см",
             "4 см",
-            "8 см",
-            "16 см"
+            "6 см",
+            "8 см"
         ],
         answer: 2
     },
 
     {
         topic: "Геометр",
-        question:
-            "Пифагорын теоремын зөв хэлбэр аль вэ?",
+        question: "Пифагорын теоремийн зөв хэлбэр аль вэ?",
         options: [
             "a + b = c",
             "a² + b² = c²",
@@ -194,36 +183,35 @@ const questions = [
         answer: 1
     },
 
+
     {
         topic: "Магадлал",
-        question:
-            "Шоог нэг удаа хаяхад 6 гарах магадлал хэд вэ?",
+        question: "Шоо нэг удаа орхиход 6 гарах магадлал хэд вэ?",
         options: [
             "1/2",
             "1/3",
             "1/6",
-            "5/6"
+            "1/4"
         ],
         answer: 2
     },
 
     {
         topic: "Магадлал",
-        question:
-            "Зоосыг нэг удаа шидэхэд сүлд гарах магадлал хэд вэ?",
+        question: "Зоос нэг удаа шидэхэд сүлд гарах магадлал хэд вэ?",
         options: [
-            "0",
-            "1/4",
+            "1",
             "1/2",
-            "1"
+            "1/3",
+            "1/4"
         ],
-        answer: 2
+        answer: 1
     },
+
 
     {
         topic: "Статистик",
-        question:
-            "4, 6, 8, 10 тоонуудын арифметик дундаж хэд вэ?",
+        question: "4, 6, 8, 10 тоонуудын арифметик дундаж хэд вэ?",
         options: [
             "6",
             "7",
@@ -235,21 +223,20 @@ const questions = [
 
     {
         topic: "Статистик",
-        question:
-            "2, 3, 3, 5, 8 өгөгдлийн медиан хэд вэ?",
+        question: "2, 3, 3, 5, 8 тоонуудын медиан хэд вэ?",
         options: [
             "2",
             "3",
-            "4",
-            "5"
+            "5",
+            "8"
         ],
         answer: 1
     },
 
+
     {
         topic: "Логик",
-        question:
-            "Дарааллыг үргэлжлүүл: 2, 4, 8, 16, ?",
+        question: "2, 4, 8, 16, ? дарааллын дараагийн тоо хэд вэ?",
         options: [
             "20",
             "24",
@@ -261,13 +248,12 @@ const questions = [
 
     {
         topic: "Логик",
-        question:
-            "3, 6, 11, 18, ? дараагийн тоо хэд вэ?",
+        question: "3, 6, 11, 18, ? дарааллын дараагийн тоо хэд вэ?",
         options: [
             "25",
             "27",
-            "28",
-            "30"
+            "29",
+            "31"
         ],
         answer: 1
     }
@@ -275,15 +261,16 @@ const questions = [
 ];
 
 
-/* =====================================================
-   ТОХИРГОО
-   ===================================================== */
-
 const TOTAL_QUESTIONS = 20;
 
 const POINTS_PER_QUESTION = 5;
 
 const TOTAL_SCORE = 100;
+
+
+/* =========================================================
+   STATE
+========================================================= */
 
 let currentQuestion = 0;
 
@@ -292,73 +279,47 @@ let selectedAnswers =
 
 let timerSeconds = 40 * 60;
 
-let timerInterval;
+let timerInterval = null;
+
+let barChartInstance = null;
+
+let pieChartInstance = null;
+
+let studentChartInstance = null;
 
 
-/* =====================================================
-   ELEMENT GETTER
-   ===================================================== */
+/* =========================================================
+   HELPER
+========================================================= */
 
 function get(id) {
-
     return document.getElementById(id);
-
 }
 
 
-/* =====================================================
-   ШАЛГАЛТ ЭХЛҮҮЛЭХ
-   ===================================================== */
+/* =========================================================
+   START EXAM
+========================================================= */
 
 function startExam() {
 
     const name =
         get("studentName").value.trim();
 
-    const studentClass =
+    const className =
         get("studentClass").value.trim();
 
     const code =
         get("studentCode").value.trim();
 
 
-    if (name === "") {
+    if (!name || !className || !code) {
 
-        alert("Овог нэрээ оруулна уу.");
-
-        get("studentName").focus();
-
-        return;
-
-    }
-
-
-    if (studentClass === "") {
-
-        alert("Ангиа оруулна уу.");
-
-        get("studentClass").focus();
+        alert(
+            "Нэр, анги, сурагчийн кодоо бүрэн оруулна уу."
+        );
 
         return;
-
-    }
-
-
-    if (code === "") {
-
-        const continueWithoutCode =
-            confirm(
-                "Сурагчийн код оруулаагүй байна. Үргэлжлүүлэх үү?"
-            );
-
-        if (!continueWithoutCode) {
-
-            get("studentCode").focus();
-
-            return;
-
-        }
-
     }
 
 
@@ -372,20 +333,21 @@ function startExam() {
     currentQuestion = 0;
 
     selectedAnswers =
-        new Array(TOTAL_QUESTIONS)
-            .fill(null);
+        new Array(TOTAL_QUESTIONS).fill(null);
+
+
+    timerSeconds = 40 * 60;
 
 
     renderQuestion();
 
     startTimer();
-
 }
 
 
-/* =====================================================
-   АСУУЛТ ХАРУУЛАХ
-   ===================================================== */
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
 
 function renderQuestion() {
 
@@ -395,33 +357,34 @@ function renderQuestion() {
 
     get("questionNumber")
         .textContent =
-        `${currentQuestion + 1} / ${TOTAL_QUESTIONS}`;
+        `Асуулт ${currentQuestion + 1} / ${TOTAL_QUESTIONS}`;
+
+
+    const progress =
+        ((currentQuestion + 1) /
+            TOTAL_QUESTIONS) * 100;
 
 
     get("progressBar")
         .style.width =
-        `${((currentQuestion + 1) / TOTAL_QUESTIONS) * 100}%`;
+        `${progress}%`;
 
 
     let html = `
 
-        <div class="question-box">
+        <div class="question-card">
 
-            <span class="question-topic">
-                ${q.topic}
-            </span>
+            <h3>
+                ${currentQuestion + 1}. 
+                ${escapeHTML(q.question)}
+            </h3>
 
-            <div class="question-text">
+            <p>
+                <strong>Сэдэв:</strong>
+                ${escapeHTML(q.topic)}
+            </p>
 
-                <strong>
-                    ${currentQuestion + 1}.
-                </strong>
-
-                ${q.question}
-
-            </div>
-
-            <div class="options">
+            <br>
 
     `;
 
@@ -430,42 +393,41 @@ function renderQuestion() {
         (option, index) => {
 
             const selected =
-                selectedAnswers[currentQuestion]
-                === index
+                selectedAnswers[currentQuestion] === index
                     ? "selected"
                     : "";
 
 
             html += `
 
-                <div
+                <label
                     class="option ${selected}"
                     onclick="selectAnswer(${index})"
                 >
 
-                    <strong>
-                        ${String.fromCharCode(
-                            65 + index
-                        )}.
-                    </strong>
+                    <input
+                        type="radio"
+                        name="answer"
+                        ${
+                            selectedAnswers[currentQuestion] === index
+                                ? "checked"
+                                : ""
+                        }
+                    >
 
-                    ${option}
+                    <span>
+                        ${String.fromCharCode(65 + index)}.
+                        ${escapeHTML(option)}
+                    </span>
 
-                </div>
+                </label>
 
             `;
-
         }
     );
 
 
-    html += `
-
-            </div>
-
-        </div>
-
-    `;
+    html += `</div>`;
 
 
     get("questionContainer")
@@ -495,15 +457,14 @@ function renderQuestion() {
 
         get("finishButton")
             .classList.add("hidden");
-
     }
 
 }
 
 
-/* =====================================================
-   ХАРИУЛТ СОНГОХ
-   ===================================================== */
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
 
 function selectAnswer(index) {
 
@@ -511,15 +472,26 @@ function selectAnswer(index) {
         index;
 
     renderQuestion();
-
 }
 
 
-/* =====================================================
-   ДАРААГИЙН АСУУЛТ
-   ===================================================== */
+/* =========================================================
+   NEXT
+========================================================= */
 
 function nextQuestion() {
+
+    if (
+        selectedAnswers[currentQuestion] === null
+    ) {
+
+        alert(
+            "Энэ асуултад хариулна уу."
+        );
+
+        return;
+    }
+
 
     if (
         currentQuestion <
@@ -529,20 +501,13 @@ function nextQuestion() {
         currentQuestion++;
 
         renderQuestion();
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
     }
-
 }
 
 
-/* =====================================================
-   ӨМНӨХ АСУУЛТ
-   ===================================================== */
+/* =========================================================
+   PREVIOUS
+========================================================= */
 
 function previousQuestion() {
 
@@ -551,65 +516,48 @@ function previousQuestion() {
         currentQuestion--;
 
         renderQuestion();
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
     }
-
 }
 
 
-/* =====================================================
+/* =========================================================
    TIMER
-   ===================================================== */
+========================================================= */
 
 function startTimer() {
+
+    clearInterval(timerInterval);
+
 
     updateTimer();
 
 
     timerInterval =
-        setInterval(
-            () => {
+        setInterval(() => {
 
-                timerSeconds--;
+            timerSeconds--;
 
-                updateTimer();
-
-
-                if (
-                    timerSeconds <= 0
-                ) {
-
-                    clearInterval(
-                        timerInterval
-                    );
+            updateTimer();
 
 
-                    alert(
-                        "⏰ Хугацаа дууслаа! Шалгалт автоматаар дуусна."
-                    );
+            if (timerSeconds <= 0) {
 
+                clearInterval(timerInterval);
 
-                    finishExam(
-                        true
-                    );
+                alert(
+                    "⏰ Таны шалгалтын хугацаа дууслаа."
+                );
 
-                }
+                finishExam(true);
+            }
 
-            },
-            1000
-        );
-
+        }, 1000);
 }
 
 
-/* =====================================================
-   TIMER DISPLAY
-   ===================================================== */
+/* =========================================================
+   UPDATE TIMER
+========================================================= */
 
 function updateTimer() {
 
@@ -626,92 +574,85 @@ function updateTimer() {
         .textContent =
         `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 
+
+    if (timerSeconds <= 300) {
+
+        get("timer")
+            .style.background =
+            "#dc2626";
+
+        get("timer")
+            .style.color =
+            "white";
+    }
 }
 
 
-/* =====================================================
-   ҮНЭЛГЭЭ
-   ===================================================== */
+/* =========================================================
+   GRADE
+========================================================= */
 
 function getGrade(score) {
 
     if (score >= 90) {
-
-        return "A — Маш сайн";
-
+        return "A";
     }
 
     if (score >= 80) {
-
-        return "B — Сайн";
-
+        return "B";
     }
 
     if (score >= 70) {
-
-        return "C — Хангалттай сайн";
-
+        return "C";
     }
 
     if (score >= 60) {
-
-        return "D — Тэнцсэн";
-
+        return "D";
     }
 
-    return "F — Сайжруулах шаардлагатай";
-
+    return "F";
 }
 
 
-/* =====================================================
-   ШАЛГАЛТ ДУУСГАХ
-   ===================================================== */
+/* =========================================================
+   FINISH EXAM
+========================================================= */
 
 function finishExam(autoFinish = false) {
 
-    clearInterval(
-        timerInterval
-    );
+    clearInterval(timerInterval);
 
 
     let correctAnswers = 0;
 
-    let topicResults = {};
+
+    const topicResults = {};
 
 
     questions.forEach(
         (q, index) => {
 
-            if (
-                !topicResults[q.topic]
-            ) {
+            if (!topicResults[q.topic]) {
 
                 topicResults[q.topic] = {
-
                     correct: 0,
-
                     total: 0
-
                 };
-
             }
 
 
-            topicResults[q.topic]
-                .total++;
+            topicResults[q.topic].total++;
 
 
             if (
-                selectedAnswers[index]
-                === q.answer
+                selectedAnswers[index] ===
+                q.answer
             ) {
 
                 correctAnswers++;
 
                 topicResults[q.topic]
                     .correct++;
-
             }
 
         }
@@ -727,9 +668,7 @@ function finishExam(autoFinish = false) {
 
         date:
             new Date()
-                .toLocaleString(
-                    "mn-MN"
-                ),
+                .toLocaleString("mn-MN"),
 
         name:
             get("studentName")
@@ -764,31 +703,28 @@ function finishExam(autoFinish = false) {
     };
 
 
-    /* LOCAL STORAGE */
-
     saveResult(result);
 
 
-    /* SCREEN CHANGE */
-
     get("examSection")
         .classList.add("hidden");
+
 
     get("resultSection")
         .classList.remove("hidden");
 
 
-    /* RESULT */
-
     showResult(result);
 
 
-    /* GOOGLE SHEETS */
+    /*
+       GOOGLE SHEETS РҮҮ
+       СЭДЭВ ТУС БҮРИЙН
+       ГРАФИКИЙН ӨГӨГДӨЛ ИЛГЭЭНЭ
+    */
 
     sendResultToTeacher(result);
 
-
-    /* DASHBOARD */
 
     loadDashboard();
 
@@ -798,16 +734,23 @@ function finishExam(autoFinish = false) {
         behavior: "smooth"
     });
 
+
+    if (autoFinish) {
+
+        get("sendStatus")
+            .textContent =
+            "⏰ Хугацаа дууссан тул шалгалт автоматаар дууслаа.";
+    }
 }
 
 
-/* =====================================================
-   LOCAL STORAGE
-   ===================================================== */
+/* =========================================================
+   SAVE LOCAL RESULT
+========================================================= */
 
 function saveResult(result) {
 
-    let results =
+    const results =
         JSON.parse(
             localStorage.getItem(
                 "mathExamResults"
@@ -822,54 +765,67 @@ function saveResult(result) {
         "mathExamResults",
         JSON.stringify(results)
     );
-
 }
 
 
-/* =====================================================
-   GOOGLE SHEETS РҮҮ ИЛГЭЭХ
-   ===================================================== */
+/* =========================================================
+   TOPIC PERCENTAGES
+========================================================= */
+
+function getTopicPercentages(result) {
+
+    const percentages = {};
+
+
+    Object.entries(
+        result.topics
+    ).forEach(
+        ([topic, data]) => {
+
+            percentages[topic] =
+                data.total > 0
+                    ? Math.round(
+                        (data.correct /
+                            data.total) * 100
+                    )
+                    : 0;
+
+        }
+    );
+
+
+    return percentages;
+}
+
+
+/* =========================================================
+   SEND RESULT TO TEACHER
+========================================================= */
 
 function sendResultToTeacher(result) {
-
-    const status =
-        get("sendStatus");
-
 
     if (
         !WEB_APP_URL ||
         WEB_APP_URL.includes(
-            "ЭНД_GOOGLE"
+            "ЭНД_GOOGLE_APPS_SCRIPT_URL"
         )
     ) {
 
-        status.innerHTML = `
-
-            <div class="result-warning">
-
-                ⚠️ Google Sheets URL
-                тохируулаагүй байна.
-
-            </div>
-
-        `;
+        get("sendStatus")
+            .textContent =
+            "⚠️ Google Apps Script URL тохируулаагүй байна.";
 
         return;
-
     }
 
 
-    status.innerHTML = `
+    const topicPercentages =
+        getTopicPercentages(result);
 
-        <div class="result-warning">
 
-            ⏳ Дүнг багшийн Google Sheets
-            рүү илгээж байна...
-
-        </div>
-
-    `;
-
+    /*
+       GOOGLE SHEETS РҮҮ ЯВАХ ӨГӨГДӨЛ
+    */
 
     const data = {
 
@@ -892,158 +848,120 @@ function sendResultToTeacher(result) {
             result.percentage,
 
         grade:
-            result.grade
+            result.grade,
+
+
+        /*
+           СЭДЭВ ТУС БҮРИЙН %
+        */
+
+        algebra:
+            topicPercentages["Алгебр"] || 0,
+
+        equations:
+            topicPercentages["Тэгшитгэл"] || 0,
+
+        functions:
+            topicPercentages["Функц"] || 0,
+
+        geometry:
+            topicPercentages["Геометр"] || 0,
+
+        probability:
+            topicPercentages["Магадлал"] || 0,
+
+        statistics:
+            topicPercentages["Статистик"] || 0,
+
+        logic:
+            topicPercentages["Логик"] || 0
 
     };
+
+
+    get("sendStatus")
+        .textContent =
+        "⏳ Дүн болон сэдвийн графикийн мэдээллийг багш руу илгээж байна...";
 
 
     fetch(
         WEB_APP_URL,
         {
-
             method: "POST",
 
             mode: "no-cors",
 
             headers: {
-
                 "Content-Type":
                     "text/plain;charset=utf-8"
-
             },
 
             body:
                 JSON.stringify(data)
-
         }
     )
-    .then(
-        () => {
+    .then(() => {
 
-            status.innerHTML = `
+        get("sendStatus")
+            .textContent =
+            "✅ Дүн болон сэдэв тус бүрийн графикийн мэдээлэл Google Sheets рүү илгээгдлээ.";
 
-                <div class="result-success">
+    })
+    .catch(error => {
 
-                    ✅ Таны дүн багшийн
-                    Google Sheets рүү
-                    илгээгдлээ.
+        console.error(error);
 
-                </div>
+        get("sendStatus")
+            .textContent =
+            "❌ Дүн илгээхэд алдаа гарлаа. Google Apps Script URL болон deployment-ээ шалгана уу.";
 
-            `;
-
-        }
-    )
-    .catch(
-        error => {
-
-            console.error(
-                "Google Sheets error:",
-                error
-            );
-
-
-            status.innerHTML = `
-
-                <div class="result-warning">
-
-                    ⚠️ Дүн илгээх үед
-                    алдаа гарлаа.
-                    Багштай холбогдоно уу.
-
-                </div>
-
-            `;
-
-        }
-    );
-
+    });
 }
 
 
-/* =====================================================
-   СУРАГЧИЙН ҮР ДҮН
-   ===================================================== */
+/* =========================================================
+   SHOW RESULT
+========================================================= */
 
 function showResult(result) {
 
     get("resultSummary")
         .innerHTML = `
 
-        <div class="score">
+        <div class="result-summary">
 
-            ${result.score} / 100
+            <div class="result-box">
+                <span>Сурагч</span>
+                <strong>
+                    ${escapeHTML(result.name)}
+                </strong>
+            </div>
+
+
+            <div class="result-box">
+                <span>Зөв хариулт</span>
+                <strong>
+                    ${result.correct} / 20
+                </strong>
+            </div>
+
+
+            <div class="result-box">
+                <span>Оноо</span>
+                <strong>
+                    ${result.score} / 100
+                </strong>
+            </div>
+
+
+            <div class="result-box">
+                <span>Үнэлгээ</span>
+                <strong>
+                    ${result.grade}
+                </strong>
+            </div>
 
         </div>
-
-        <h3>
-
-            ${escapeHTML(
-                result.name
-            )}
-
-        </h3>
-
-        <p>
-
-            Анги:
-
-            <strong>
-                ${escapeHTML(
-                    result.className
-                )}
-            </strong>
-
-        </p>
-
-        <p>
-
-            Код:
-
-            <strong>
-                ${escapeHTML(
-                    result.code || "-"
-                )}
-            </strong>
-
-        </p>
-
-        <p>
-
-            Зөв хариулт:
-
-            <strong>
-                ${result.correct} / 20
-            </strong>
-
-        </p>
-
-        <p>
-
-            Хувь:
-
-            <strong>
-                ${result.percentage}%
-            </strong>
-
-        </p>
-
-        <p class="grade">
-
-            Үнэлгээ:
-
-            ${result.grade}
-
-        </p>
-
-        <p>
-
-            Огноо:
-
-            ${result.date}
-
-        </p>
-
     `;
 
 
@@ -1060,13 +978,12 @@ function showResult(result) {
     drawPieChart(
         result.score
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    TOPIC TABLE
-   ===================================================== */
+========================================================= */
 
 function createTopicTable(topics) {
 
@@ -1077,21 +994,15 @@ function createTopicTable(topics) {
             <thead>
 
                 <tr>
-
                     <th>Сэдэв</th>
-
                     <th>Зөв</th>
-
                     <th>Нийт</th>
-
                     <th>Хувь</th>
-
                 </tr>
 
             </thead>
 
             <tbody>
-
     `;
 
 
@@ -1099,12 +1010,13 @@ function createTopicTable(topics) {
         .forEach(
             ([topic, data]) => {
 
-                const percent =
-                    Math.round(
-                        data.correct /
-                        data.total *
-                        100
-                    );
+                const percentage =
+                    data.total > 0
+                        ? Math.round(
+                            (data.correct /
+                                data.total) * 100
+                        )
+                        : 0;
 
 
                 html += `
@@ -1112,7 +1024,7 @@ function createTopicTable(topics) {
                     <tr>
 
                         <td>
-                            ${topic}
+                            ${escapeHTML(topic)}
                         </td>
 
                         <td>
@@ -1124,307 +1036,166 @@ function createTopicTable(topics) {
                         </td>
 
                         <td>
-                            ${percent}%
+                            ${percentage}%
                         </td>
 
                     </tr>
 
                 `;
-
             }
         );
 
 
     html += `
-
             </tbody>
-
         </table>
-
     `;
 
 
     get("topicTable")
         .innerHTML = html;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    BAR CHART
-   ===================================================== */
+========================================================= */
 
 function drawBarChart(topics) {
 
-    const canvas =
-        get("barChart");
-
-    const ctx =
-        canvas.getContext("2d");
+    const labels =
+        Object.keys(topics);
 
 
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
+    const data =
+        Object.values(topics)
+            .map(topic => {
+
+                return topic.total > 0
+                    ? Math.round(
+                        (topic.correct /
+                            topic.total) * 100
+                    )
+                    : 0;
+            });
 
 
-    const entries =
-        Object.entries(topics);
+    if (barChartInstance) {
+
+        barChartInstance.destroy();
+    }
 
 
-    const width =
-        canvas.width;
+    barChartInstance =
+        new Chart(
+            get("barChart"),
+            {
+                type: "bar",
 
-    const bottom =
-        290;
+                data: {
 
-    const chartHeight =
-        230;
+                    labels: labels,
 
-    const barWidth =
-        55;
+                    datasets: [
 
-    const gap =
-        30;
+                        {
+                            label:
+                                "Сэдвийн гүйцэтгэл (%)",
 
+                            data: data
+                        }
 
-    ctx.font =
-        "12px Arial";
+                    ]
 
+                },
 
-    entries.forEach(
-        ([topic, data], index) => {
+                options: {
 
-            const percent =
-                data.correct /
-                data.total *
-                100;
+                    responsive: true,
 
+                    scales: {
 
-            const barHeight =
-                percent /
-                100 *
-                chartHeight;
+                        y: {
 
+                            beginAtZero: true,
 
-            const x =
-                40 +
-                index *
-                (barWidth + gap);
+                            max: 100,
 
+                            ticks: {
 
-            const y =
-                bottom -
-                barHeight;
+                                callback:
+                                    value =>
+                                        value + "%"
+                            }
 
+                        }
 
-            ctx.fillStyle =
-                "#2563eb";
+                    }
 
+                }
 
-            ctx.fillRect(
-                x,
-                y,
-                barWidth,
-                barHeight
-            );
-
-
-            ctx.fillStyle =
-                "#172033";
-
-
-            ctx.textAlign =
-                "center";
-
-
-            ctx.fillText(
-                Math.round(percent)
-                + "%",
-                x +
-                barWidth / 2,
-                y - 8
-            );
-
-
-            ctx.save();
-
-
-            ctx.translate(
-                x +
-                barWidth / 2,
-                bottom + 18
-            );
-
-
-            ctx.rotate(
-                -Math.PI / 6
-            );
-
-
-            ctx.fillText(
-                topic,
-                0,
-                0
-            );
-
-
-            ctx.restore();
-
-        }
-    );
-
-
-    ctx.strokeStyle =
-        "#94a3b8";
-
-
-    ctx.beginPath();
-
-
-    ctx.moveTo(
-        35,
-        bottom
-    );
-
-
-    ctx.lineTo(
-        width - 20,
-        bottom
-    );
-
-
-    ctx.stroke();
-
+            }
+        );
 }
 
 
-/* =====================================================
+/* =========================================================
    PIE CHART
-   ===================================================== */
+========================================================= */
 
 function drawPieChart(score) {
 
-    const canvas =
-        get("pieChart");
+    if (pieChartInstance) {
 
-    const ctx =
-        canvas.getContext("2d");
-
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
+        pieChartInstance.destroy();
+    }
 
 
-    const centerX =
-        canvas.width / 2;
-
-    const centerY =
-        canvas.height / 2;
-
-    const radius =
-        105;
+    const wrong =
+        TOTAL_SCORE - score;
 
 
-    const correctAngle =
-        (score / 100) *
-        Math.PI * 2;
+    pieChartInstance =
+        new Chart(
+            get("pieChart"),
+            {
 
+                type: "pie",
 
-    /* ЗӨВ */
+                data: {
 
-    ctx.beginPath();
+                    labels: [
+                        "Зөв",
+                        "Алдсан"
+                    ],
 
+                    datasets: [
 
-    ctx.moveTo(
-        centerX,
-        centerY
-    );
+                        {
+                            data: [
+                                score,
+                                wrong
+                            ]
+                        }
 
+                    ]
 
-    ctx.arc(
-        centerX,
-        centerY,
-        radius,
-        -Math.PI / 2,
-        -Math.PI / 2 +
-        correctAngle
-    );
+                },
 
+                options: {
 
-    ctx.closePath();
+                    responsive: true
 
+                }
 
-    ctx.fillStyle =
-        "#2563eb";
-
-
-    ctx.fill();
-
-
-    /* БУРУУ */
-
-    ctx.beginPath();
-
-
-    ctx.moveTo(
-        centerX,
-        centerY
-    );
-
-
-    ctx.arc(
-        centerX,
-        centerY,
-        radius,
-        -Math.PI / 2 +
-        correctAngle,
-        -Math.PI / 2 +
-        Math.PI * 2
-    );
-
-
-    ctx.closePath();
-
-
-    ctx.fillStyle =
-        "#dbeafe";
-
-
-    ctx.fill();
-
-
-    ctx.fillStyle =
-        "#172033";
-
-
-    ctx.font =
-        "bold 24px Arial";
-
-
-    ctx.textAlign =
-        "center";
-
-
-    ctx.fillText(
-        score + "%",
-        centerX,
-        centerY + 8
-    );
-
+            }
+        );
 }
 
 
-/* =====================================================
+/* =========================================================
    DASHBOARD
-   ===================================================== */
+========================================================= */
 
 function loadDashboard() {
 
@@ -1436,14 +1207,16 @@ function loadDashboard() {
         );
 
 
-    get("totalStudents")
-        .textContent =
+    const total =
         results.length;
 
 
-    if (
-        results.length === 0
-    ) {
+    get("totalStudents")
+        .textContent =
+        total;
+
+
+    if (total === 0) {
 
         get("averageScore")
             .textContent = "0";
@@ -1454,62 +1227,57 @@ function loadDashboard() {
         get("passRate")
             .textContent = "0%";
 
-    } else {
+        get("dashboardTable")
+            .innerHTML = "";
 
-        const total =
-            results.reduce(
-                (sum, item) =>
-                    sum + item.score,
-                0
-            );
-
-
-        const average =
-            Math.round(
-                total /
-                results.length
-            );
-
-
-        const highest =
-            Math.max(
-                ...results.map(
-                    item =>
-                        item.score
-                )
-            );
-
-
-        const passed =
-            results.filter(
-                item =>
-                    item.score >= 60
-            ).length;
-
-
-        const passRate =
-            Math.round(
-                passed /
-                results.length *
-                100
-            );
-
-
-        get("averageScore")
-            .textContent =
-            average;
-
-
-        get("highestScore")
-            .textContent =
-            highest;
-
-
-        get("passRate")
-            .textContent =
-            passRate + "%";
-
+        return;
     }
+
+
+    const scores =
+        results.map(
+            result =>
+                Number(result.score) || 0
+        );
+
+
+    const average =
+        scores.reduce(
+            (a, b) => a + b,
+            0
+        ) / total;
+
+
+    const highest =
+        Math.max(...scores);
+
+
+    const passed =
+        results.filter(
+            result =>
+                result.score >= 60
+        ).length;
+
+
+    const passRate =
+        Math.round(
+            (passed / total) * 100
+        );
+
+
+    get("averageScore")
+        .textContent =
+        Math.round(average);
+
+
+    get("highestScore")
+        .textContent =
+        highest;
+
+
+    get("passRate")
+        .textContent =
+        `${passRate}%`;
 
 
     createDashboardTable(
@@ -1520,13 +1288,12 @@ function loadDashboard() {
     drawStudentChart(
         results
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    DASHBOARD TABLE
-   ===================================================== */
+========================================================= */
 
 function createDashboardTable(results) {
 
@@ -1534,34 +1301,26 @@ function createDashboardTable(results) {
 
 
     results.forEach(
-        result => {
+        (result, index) => {
 
             html += `
 
                 <tr>
 
                     <td>
-                        ${escapeHTML(
-                            result.date
-                        )}
+                        ${index + 1}
                     </td>
 
                     <td>
-                        ${escapeHTML(
-                            result.name
-                        )}
+                        ${escapeHTML(result.name)}
                     </td>
 
                     <td>
-                        ${escapeHTML(
-                            result.className
-                        )}
+                        ${escapeHTML(result.className)}
                     </td>
 
                     <td>
-                        ${escapeHTML(
-                            result.code || "-"
-                        )}
+                        ${escapeHTML(result.code)}
                     </td>
 
                     <td>
@@ -1569,9 +1328,7 @@ function createDashboardTable(results) {
                     </td>
 
                     <td>
-                        <strong>
-                            ${result.score}
-                        </strong>
+                        ${result.score}
                     </td>
 
                     <td>
@@ -1579,174 +1336,97 @@ function createDashboardTable(results) {
                     </td>
 
                     <td>
-                        ${escapeHTML(
-                            result.grade
-                        )}
+                        ${result.grade}
                     </td>
 
                 </tr>
 
             `;
-
         }
     );
 
 
     get("dashboardTable")
-        .innerHTML =
-        html;
-
+        .innerHTML = html;
 }
 
 
-/* =====================================================
+/* =========================================================
    STUDENT CHART
-   ===================================================== */
+========================================================= */
 
 function drawStudentChart(results) {
 
-    const canvas =
-        get("studentChart");
-
-    const ctx =
-        canvas.getContext("2d");
-
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    if (
-        results.length === 0
-    ) {
-
-        ctx.fillStyle =
-            "#64748b";
-
-        ctx.font =
-            "18px Arial";
-
-        ctx.textAlign =
-            "center";
-
-
-        ctx.fillText(
-            "Одоогоор шалгалтын дүн алга",
-            canvas.width / 2,
-            canvas.height / 2
+    const labels =
+        results.map(
+            (result, index) =>
+                `${index + 1}. ${result.name}`
         );
 
 
-        return;
+    const scores =
+        results.map(
+            result =>
+                result.score
+        );
 
+
+    if (studentChartInstance) {
+
+        studentChartInstance.destroy();
     }
 
 
-    const barWidth =
-        Math.min(
-            60,
-            (canvas.width - 80) /
-            results.length - 15
+    studentChartInstance =
+        new Chart(
+            get("studentChart"),
+            {
+
+                type: "bar",
+
+                data: {
+
+                    labels: labels,
+
+                    datasets: [
+
+                        {
+                            label:
+                                "Оноо",
+
+                            data: scores
+                        }
+
+                    ]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    scales: {
+
+                        y: {
+
+                            beginAtZero: true,
+
+                            max: 100
+
+                        }
+
+                    }
+
+                }
+
+            }
         );
-
-
-    results.forEach(
-        (result, index) => {
-
-            const x =
-                40 +
-                index *
-                (barWidth + 20);
-
-
-            const height =
-                result.score /
-                100 *
-                240;
-
-
-            const y =
-                290 -
-                height;
-
-
-            ctx.fillStyle =
-                "#2563eb";
-
-
-            ctx.fillRect(
-                x,
-                y,
-                barWidth,
-                height
-            );
-
-
-            ctx.fillStyle =
-                "#172033";
-
-
-            ctx.font =
-                "12px Arial";
-
-
-            ctx.textAlign =
-                "center";
-
-
-            ctx.fillText(
-                result.score,
-                x +
-                barWidth / 2,
-                y - 8
-            );
-
-
-            ctx.fillText(
-                result.name.substring(
-                    0,
-                    8
-                ),
-                x +
-                barWidth / 2,
-                315
-            );
-
-        }
-    );
-
-
-    ctx.strokeStyle =
-        "#94a3b8";
-
-
-    ctx.beginPath();
-
-
-    ctx.moveTo(
-        30,
-        290
-    );
-
-
-    ctx.lineTo(
-        canvas.width - 20,
-        290
-    );
-
-
-    ctx.stroke();
-
 }
 
 
-/* =====================================================
+/* =========================================================
    CSV EXPORT
-   ===================================================== */
+========================================================= */
 
 function exportCSV() {
 
@@ -1758,46 +1438,73 @@ function exportCSV() {
         );
 
 
-    if (
-        results.length === 0
-    ) {
+    if (results.length === 0) {
 
         alert(
-            "Экспортлох дүн алга."
+            "Экспорт хийх дүн алга байна."
         );
 
         return;
-
     }
 
 
     let csv =
-        "Огноо,Нэр,Анги,Код,Зөв хариулт,Оноо,Хувь,Үнэлгээ\n";
+        "Огноо,Нэр,Анги,Код,Зөв,Оноо,Хувь,Үнэлгээ,Алгебр %,Тэгшитгэл %,Функц %,Геометр %,Магадлал %,Статистик %,Логик %\n";
 
 
-    results.forEach(
-        result => {
+    results.forEach(result => {
 
-            csv +=
-                `"${result.date}",` +
-                `"${result.name}",` +
-                `"${result.className}",` +
-                `"${result.code}",` +
-                `${result.correct},` +
-                `${result.score},` +
-                `${result.percentage},` +
-                `"${result.grade}"\n`;
+        const topics =
+            getTopicPercentages(
+                result
+            );
 
-        }
-    );
+
+        csv += [
+
+            result.date,
+
+            result.name,
+
+            result.className,
+
+            result.code,
+
+            result.correct,
+
+            result.score,
+
+            result.percentage,
+
+            result.grade,
+
+            topics["Алгебр"] || 0,
+
+            topics["Тэгшитгэл"] || 0,
+
+            topics["Функц"] || 0,
+
+            topics["Геометр"] || 0,
+
+            topics["Магадлал"] || 0,
+
+            topics["Статистик"] || 0,
+
+            topics["Логик"] || 0
+
+        ]
+        .map(value =>
+            `"${String(value)
+                .replace(/"/g, '""')}"`
+        )
+        .join(",") + "\n";
+
+    });
 
 
     const blob =
         new Blob(
-            [
-                "\ufeff" +
-                csv
-            ],
+            ["\ufeff" + csv],
             {
                 type:
                     "text/csv;charset=utf-8;"
@@ -1806,57 +1513,40 @@ function exportCSV() {
 
 
     const url =
-        URL.createObjectURL(
-            blob
-        );
+        URL.createObjectURL(blob);
 
 
     const link =
         document.createElement("a");
 
 
-    link.href =
-        url;
-
+    link.href = url;
 
     link.download =
-        "matematik-shalgalt-dun.csv";
-
-
-    document.body.appendChild(
-        link
-    );
+        "math_exam_results.csv";
 
 
     link.click();
 
 
-    link.remove();
-
-
-    URL.revokeObjectURL(
-        url
-    );
-
+    URL.revokeObjectURL(url);
 }
 
 
-/* =====================================================
-   LOCAL RESULTS УСТГАХ
-   ===================================================== */
+/* =========================================================
+   CLEAR LOCAL RESULTS
+========================================================= */
 
 function clearResults() {
 
     const confirmDelete =
         confirm(
-            "Энэ төхөөрөмж дээр хадгалагдсан бүх дүнг устгах уу?\n\nGoogle Sheets дэх дүн устахгүй."
+            "Орон нутагт хадгалагдсан бүх дүнг устгах уу?"
         );
 
 
     if (!confirmDelete) {
-
         return;
-
     }
 
 
@@ -1867,42 +1557,67 @@ function clearResults() {
 
     loadDashboard();
 
+
+    alert(
+        "Орон нутгийн дүн устгагдлаа."
+    );
 }
 
 
-/* =====================================================
-   HTML SECURITY
-   ===================================================== */
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restartExam() {
+
+    location.reload();
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHTML(value) {
 
     return String(value)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"
         );
-
 }
 
 
-/* =====================================================
-   PAGE LOAD
-   ===================================================== */
+/* =========================================================
+   INITIAL DASHBOARD
+========================================================= */
 
-loadDashboard();
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        loadDashboard();
+
+    }
+);

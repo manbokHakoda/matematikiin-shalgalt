@@ -11,87 +11,105 @@
 
 <body>
 
-<header>
-    <div class="container">
+<header class="header">
+    <div class="header-content">
         <h1>📐 Ахлах ангийн математикийн шалгалт</h1>
-        <p>20 асуулт • 100 оноо • 40 минут</p>
+        <p>20 асуулт · 100 оноо · 40 минут</p>
     </div>
 </header>
 
+
 <main class="container">
 
-    <!-- СУРАГЧИЙН МЭДЭЭЛЭЛ -->
+    <!-- =========================
+         STUDENT INFORMATION
+    ========================== -->
+
     <section id="studentSection" class="card">
 
         <h2>👨‍🎓 Сурагчийн мэдээлэл</h2>
 
         <div class="form-grid">
 
-            <div>
-                <label for="studentName">Овог нэр</label>
+            <div class="form-group">
+                <label for="studentName">Нэр</label>
 
                 <input
                     type="text"
                     id="studentName"
-                    placeholder="Жишээ: Бат Болд"
-                    autocomplete="name"
+                    placeholder="Нэрээ оруулна уу"
+                    required
                 >
             </div>
 
-            <div>
+
+            <div class="form-group">
                 <label for="studentClass">Анги</label>
 
                 <input
                     type="text"
                     id="studentClass"
                     placeholder="Жишээ: 11А"
+                    required
                 >
             </div>
 
-            <div>
+
+            <div class="form-group">
                 <label for="studentCode">Сурагчийн код</label>
 
                 <input
                     type="text"
                     id="studentCode"
-                    placeholder="Жишээ: 11A01"
+                    placeholder="Жишээ: MM25001"
+                    required
                 >
             </div>
 
         </div>
 
+
         <button
-            class="btn primary start-btn"
+            class="btn primary"
             onclick="startExam()"
         >
-            ▶ Шалгалт эхлүүлэх
+            🚀 Шалгалт эхлүүлэх
         </button>
 
     </section>
 
 
-    <!-- ШАЛГАЛТ -->
-    <section
-        id="examSection"
-        class="card hidden"
-    >
 
-        <div class="exam-header">
+    <!-- =========================
+         EXAM
+    ========================== -->
 
-            <div class="exam-progress">
+    <section id="examSection" class="card hidden">
 
+        <div class="exam-top">
+
+            <div>
                 <strong id="questionNumber">
-                    1 / 20
+                    Асуулт 1 / 20
                 </strong>
-
-                <div class="progress">
-                    <div id="progressBar"></div>
-                </div>
-
             </div>
 
-            <div class="timer">
-                ⏱ <span id="timer">40:00</span>
+            <div id="timer" class="timer">
+                40:00
+            </div>
+
+        </div>
+
+
+        <div class="progress-wrapper">
+
+            <div class="progress-bar">
+
+                <div
+                    id="progressBar"
+                    class="progress"
+                ></div>
+
             </div>
 
         </div>
@@ -100,7 +118,7 @@
         <div id="questionContainer"></div>
 
 
-        <div class="navigation">
+        <div class="exam-buttons">
 
             <button
                 id="previousButton"
@@ -110,6 +128,7 @@
                 ← Өмнөх
             </button>
 
+
             <button
                 id="nextButton"
                 class="btn primary"
@@ -117,6 +136,7 @@
             >
                 Дараах →
             </button>
+
 
             <button
                 id="finishButton"
@@ -131,184 +151,160 @@
     </section>
 
 
-    <!-- СУРАГЧИЙН ҮР ДҮН -->
-    <section
-        id="resultSection"
-        class="hidden"
-    >
 
-        <div class="card">
+    <!-- =========================
+         RESULT
+    ========================== -->
 
-            <h2>🎓 Шалгалтын үр дүн</h2>
+    <section id="resultSection" class="card hidden">
 
-            <div id="sendStatus"></div>
-
-            <div id="resultSummary"></div>
+        <h2>📊 Шалгалтын дүн</h2>
 
 
-            <div class="charts">
-
-                <div class="chart-card">
-
-                    <h3>📊 Сэдэв тус бүрийн гүйцэтгэл</h3>
-
-                    <canvas
-                        id="barChart"
-                        width="650"
-                        height="350"
-                    ></canvas>
-
-                </div>
+        <div id="sendStatus" class="send-status"></div>
 
 
-                <div class="chart-card">
-
-                    <h3>🥧 Онооны бүтэц</h3>
-
-                    <canvas
-                        id="pieChart"
-                        width="500"
-                        height="350"
-                    ></canvas>
-
-                </div>
-
-            </div>
+        <div id="resultSummary"></div>
 
 
-            <h3>📚 Сэдвийн дэлгэрэнгүй</h3>
+        <h3>📚 Сэдэв тус бүрийн гүйцэтгэл</h3>
 
-            <div id="topicTable"></div>
+        <div
+            id="topicTable"
+            class="table-wrapper"
+        ></div>
 
 
-            <div class="result-buttons">
+        <div class="chart-container">
 
-                <button
-                    class="btn primary"
-                    onclick="window.print()"
-                >
-                    🖨 Тайлан хэвлэх
-                </button>
+            <h3>📊 Сэдвийн график</h3>
 
-                <button
-                    class="btn secondary"
-                    onclick="location.reload()"
-                >
-                    🔄 Дахин эхлэх
-                </button>
+            <canvas id="barChart"></canvas>
 
-            </div>
+        </div>
+
+
+        <div class="chart-container">
+
+            <h3>🥧 Нийт онооны график</h3>
+
+            <canvas id="pieChart"></canvas>
+
+        </div>
+
+
+        <div class="result-buttons">
+
+            <button
+                class="btn secondary"
+                onclick="window.print()"
+            >
+                🖨 Хэвлэх
+            </button>
+
+
+            <button
+                class="btn primary"
+                onclick="restartExam()"
+            >
+                🔄 Дахин эхлүүлэх
+            </button>
 
         </div>
 
     </section>
 
 
-    <!-- БАГШИЙН DASHBOARD -->
-    <section class="card teacher-dashboard">
 
-        <div class="dashboard-title">
+    <!-- =========================
+         TEACHER DASHBOARD
+    ========================== -->
 
-            <div>
+    <section class="card dashboard">
 
-                <h2>👨‍🏫 Багшийн Dashboard</h2>
+        <h2>👨‍🏫 Багшийн Dashboard</h2>
 
-                <p>
-                    Энэ хэсэг нь тухайн төхөөрөмж дээр хадгалагдсан
-                    дүнг харуулна. Бүх сурагчийн үндсэн дүн
-                    Google Sheets-д мөн хадгалагдана.
-                </p>
 
+        <div class="dashboard-stats">
+
+            <div class="stat-card">
+                <span>Нийт сурагч</span>
+                <strong id="totalStudents">0</strong>
             </div>
 
-            <div>
 
-                <button
-                    class="btn secondary"
-                    onclick="loadDashboard()"
-                >
-                    🔄 Шинэчлэх
-                </button>
+            <div class="stat-card">
+                <span>Дундаж оноо</span>
+                <strong id="averageScore">0</strong>
+            </div>
 
-                <button
-                    class="btn primary"
-                    onclick="exportCSV()"
-                >
-                    📥 CSV
-                </button>
 
-                <button
-                    class="btn danger"
-                    onclick="clearResults()"
-                >
-                    🗑 Устгах
-                </button>
+            <div class="stat-card">
+                <span>Хамгийн өндөр</span>
+                <strong id="highestScore">0</strong>
+            </div>
 
+
+            <div class="stat-card">
+                <span>Тэнцсэн хувь</span>
+                <strong id="passRate">0%</strong>
             </div>
 
         </div>
 
 
-        <div class="statistics">
+        <div class="dashboard-chart">
 
-            <div class="stat-box">
-                <span id="totalStudents">0</span>
-                <small>Сурагч</small>
-            </div>
+            <h3>Сурагчдын оноо</h3>
 
-            <div class="stat-box">
-                <span id="averageScore">0</span>
-                <small>Дундаж оноо</small>
-            </div>
-
-            <div class="stat-box">
-                <span id="highestScore">0</span>
-                <small>Хамгийн өндөр</small>
-            </div>
-
-            <div class="stat-box">
-                <span id="passRate">0%</span>
-                <small>60+ оноо</small>
-            </div>
+            <canvas id="studentChart"></canvas>
 
         </div>
 
 
-        <div class="chart-card">
-
-            <h3>📈 Сурагчдын оноо</h3>
-
-            <canvas
-                id="studentChart"
-                width="900"
-                height="350"
-            ></canvas>
-
-        </div>
-
-
-        <div class="table-container">
+        <div class="table-wrapper">
 
             <table>
 
                 <thead>
 
                     <tr>
-                        <th>Огноо</th>
+                        <th>№</th>
                         <th>Нэр</th>
                         <th>Анги</th>
                         <th>Код</th>
                         <th>Зөв</th>
                         <th>Оноо</th>
-                        <th>Хувь</th>
+                        <th>%</th>
                         <th>Үнэлгээ</th>
                     </tr>
 
                 </thead>
 
+
                 <tbody id="dashboardTable"></tbody>
 
             </table>
+
+        </div>
+
+
+        <div class="dashboard-buttons">
+
+            <button
+                class="btn primary"
+                onclick="exportCSV()"
+            >
+                📥 CSV татах
+            </button>
+
+
+            <button
+                class="btn danger"
+                onclick="clearResults()"
+            >
+                🗑 Орон нутгийн дүн устгах
+            </button>
 
         </div>
 
@@ -318,10 +314,14 @@
 
 
 <footer>
-    Ахлах ангийн математикийн шалгалтын систем
+    <p>© 2026 Математикийн шалгалтын систем</p>
 </footer>
 
 
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Main JS -->
 <script src="script.js"></script>
 
 </body>
